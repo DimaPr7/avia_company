@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ plane.plane_model }}</h1>
+<p>Plane ID: {{ plane.id }}</p>
+<p>Plane Model: {{ plane.plane_model }}</p>
+<p>Plane Type: {{ plane.plane_type }}</p>
+<h2>Crew</h2>
+<ul>
+  <li>{{ plane.crew.number }}</li>
+</ul>
+{% endblock %}

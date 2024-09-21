@@ -7,7 +7,7 @@ from django.views import generic
 from airlines.models import Crew, Plane, Order, Client
 
 
-@login_required
+# @login_required
 def index(request):
     """View function for the home page of the site."""
 
@@ -28,95 +28,97 @@ def index(request):
     return render(request, "index.html", context=context)
 
 
-class CrewListView(LoginRequiredMixin, generic.ListView):
+class CrewListView(generic.ListView):
     model = Crew
     context_object_name = "crew_list"
     template_name = "crew_list.html"
     paginate_by = 5
 
 
-class CrewCreateView(LoginRequiredMixin, generic.CreateView):
+class CrewCreateView(generic.CreateView):
     model = Crew
     fields = "__all__"
     success_url = reverse_lazy("djangoProject:crew-list")
 
 
-class CrewUpdateView(LoginRequiredMixin, generic.UpdateView):
+class CrewUpdateView(generic.UpdateView):
     model = Crew
     fields = "__all__"
     success_url = reverse_lazy("djangoProject:crew-list")
 
 
-class CrewDeleteView(LoginRequiredMixin, generic.DeleteView):
+class CrewDeleteView(generic.DeleteView):
     model = Crew
     success_url = reverse_lazy("djangoProject:crew-list")
 
 
-class PlaneListView(LoginRequiredMixin, generic.ListView):
+class PlaneListView(generic.ListView):
     model = Plane
     context_object_name = "plane_list"
     template_name = "plane_list.html"
     paginate_by = 5
 
 
-class PlaneDetailView(LoginRequiredMixin, generic.DetailView):
+class PlaneDetailView(generic.DetailView):
     model = Plane
+    template_name = "plane_detail.html"
     context_object_name = "plane"
-    queryset = Plane.objects.all().select_related("planes__crew")
+    queryset = Plane.objects.all().select_related("crew")
 
 
-class PlaneUpdateView(LoginRequiredMixin, generic.UpdateView):
+class PlaneUpdateView(generic.UpdateView):
     model = Plane
     fields = "__all__"
     success_url = reverse_lazy("avia_company:plane-list")
 
 
-class PlaneDeleteView(LoginRequiredMixin, generic.DeleteView):
+class PlaneDeleteView(generic.DeleteView):
     model = Plane
     success_url = reverse_lazy("avia_company:plane-list")
 
 
-class OrderListView(LoginRequiredMixin, generic.ListView):
+class OrderListView(generic.ListView):
     model = Order
     context_object_name = "order_list"
+    template_name = "order_list.html"
     paginate_by = 5
 
 
-class OrderDetailView(LoginRequiredMixin, generic.DetailView):
+class OrderDetailView(generic.DetailView):
     model = Order
+    template_name = "order_detail.html"
     context_object_name = "order"
     queryset = Order.objects.all().prefetch_related("flight")
 
 
-class OrderUpdateView(LoginRequiredMixin, generic.UpdateView):
+class OrderUpdateView(generic.UpdateView):
     model = Order
     fields = "__all__"
     success_url = reverse_lazy("avia_company:order-list")
 
 
-class OrderDeleteView(LoginRequiredMixin, generic.DeleteView):
+class OrderDeleteView(generic.DeleteView):
     model = Order
     success_url = reverse_lazy("avia_company:order-list")
 
 
-class ClientListView(LoginRequiredMixin, generic.ListView):
+class ClientListView(generic.ListView):
     model = Client
     context_object_name = "client_list"
     paginate_by = 5
 
 
-class ClientDetailView(LoginRequiredMixin, generic.DetailView):
+class ClientDetailView(generic.DetailView):
     model = Client
     context_object_name = "client"
 
 
-class ClientUpdateView(LoginRequiredMixin, generic.UpdateView):
+class ClientUpdateView(generic.UpdateView):
     model = Client
     fields = "__all__"
     success_url = reverse_lazy("avia_company:client-list")
 
 
-class ClientDeleteView(LoginRequiredMixin, generic.DeleteView):
+class ClientDeleteView(generic.DeleteView):
     model = Client
     success_url = reverse_lazy("avia_company:client-list")
-

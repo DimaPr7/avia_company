@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome to the AirLithuania!</h1>
+  <h2>Dynamic Content</h2>
+  <p>The Avia company has the following record counts:</p>
+  <ul>
+    <li><strong>Planes:</strong> {{ num_planes }}</li>
+    <li><strong>Crews:</strong> {{ num_crews }}</li>
+    <li><strong>Orders:</strong> {{ num_orders }}</li>
+  </ul>
+
+  <p>You have visited this page
+      {{ num_visits }} time{{ num_visits|pluralize }}.
+  </p>
+{% endblock %}

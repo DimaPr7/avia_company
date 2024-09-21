@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Crews</h1>
+  {% if crew_list %}
+    <ul>
+      {% for crew in crew_list %}
+        <li>{{ crew.name }} Number: <b>{{ crew.number }}</b> Rate: {{ crew.rate }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No crews are available at the moment.</p>
+  {% endif %}
+{% endblock %}

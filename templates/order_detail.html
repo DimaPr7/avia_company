@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Id {{ order.number }}</h1>
+<p>Order price: {{ order.price }}$</p>
+<p>Order status: {{ order.status }}</p>
+<h2>Plane</h2>
+<ul>
+  {% for plane in order.flight.all %}
+  <li>Plane ID: {{ plane.id }}</li>
+    <li>Plane Model: {{ plane.plane_model }}</li>
+    <li>Crew Number: {{ plane.crew.number }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

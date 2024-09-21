@@ -38,7 +38,7 @@ from airlines.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path("", index, name="index"),
     path("crew/", CrewListView.as_view(), name="crew-list"),
     path("crew/create", CrewCreateView.as_view(), name="crew-create"),
     path("crew/update/<int:pk>", CrewUpdateView.as_view(), name="crew-update"),

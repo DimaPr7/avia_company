@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Our planes</h1>
+  {% if plane_list %}
+    <ul>
+      {% for plane in plane_list %}
+        <li>
+          <a href="{% url 'plane-detail' plane.pk %}">{{ plane.id }}: {{ plane.plane_model }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No planes are available at the moment.</p>
+  {% endif %}
+{% endblock %}
