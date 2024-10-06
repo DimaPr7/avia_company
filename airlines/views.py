@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from airlines.forms import OrderForm
 from airlines.models import Crew, Plane, Order, Client
 
 
@@ -68,8 +69,9 @@ class PlaneDetailView(generic.DetailView):
 
 class PlaneUpdateView(generic.UpdateView):
     model = Plane
+    template_name = 'plane_form.html'
     fields = "__all__"
-    success_url = reverse_lazy("avia_company:plane-list")
+    success_url = reverse_lazy("plane-list")
 
 
 class PlaneDeleteView(generic.DeleteView):
@@ -93,8 +95,10 @@ class OrderDetailView(generic.DetailView):
 
 class OrderUpdateView(generic.UpdateView):
     model = Order
-    fields = "__all__"
-    success_url = reverse_lazy("avia_company:order-list")
+    # form_class = OrderForm
+    template_name = 'order_form.html'
+    fields = '__all__'
+    success_url = reverse_lazy("order-list")
 
 
 class OrderDeleteView(generic.DeleteView):

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Id {{ order.number }}</h1>
+<h1>Id {{ order.number }}</h1> <a href="{% url 'order-update' order.id %}" class="btn btn-warning">Edit Order</a>
+
 <p>Order price: {{ order.price }}$</p>
 <p>Order status: {{ order.status }}</p>
 <h2>Plane</h2>

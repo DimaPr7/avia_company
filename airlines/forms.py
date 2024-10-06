@@ -1,14 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from airlines.models import Client
+from .models import Client, Order
 
 
-class DriverCreationForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
-        model = Client
-        fields = UserCreationForm.Meta.fields + (
-            "username",
-            "last_name",
-            "first_name",
-            "license_number",
-        )
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = '__all__'

@@ -36,6 +36,7 @@ from airlines.views import (
     ClientDeleteView
 )
 
+app_name = "airlines"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index, name="index"),
