@@ -6,8 +6,12 @@
     <ul>
       {% for order in order_list %}
         <li>
-          <a href="{% url 'order-detail' order.pk %}">id: {{ order.number }}; status: {{ order.status }}</a>
-        </li>
+  <a href="{% url 'order-detail' order.pk %}">id: {{ order.number }}; status: {{ order.status }}</a>
+  <span style="float: right;">
+    <a href="{% url 'order-update' order.id %}" class="btn btn-warning">Edit</a> &nbsp;
+    <a href="{% url 'order-delete' order.id %}" class="btn btn-danger" style="background-color: red; color: white;">Delete</a>
+  </span>
+</li>
       {% endfor %}
     </ul>
   {% else %}

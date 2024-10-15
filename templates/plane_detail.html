@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ plane.plane_model }} <a href="{% url 'plane-update' plane.id %}" class="btn btn-warning">Edit Plane</a></h1>
+<h1>{{ plane.plane_model }} <a href="{% url 'plane-update' plane.id %}" class="btn btn-warning">Edit Plane</a>
+  <a href="{% url 'plane-delete' plane.id %}" class="btn btn-warning">Delete Plane</a></h1>
 <p>Plane ID: {{ plane.id }}</p>
 <p>Plane Model: {{ plane.plane_model }}</p>
 <p>Plane Type: {{ plane.plane_type }}</p>

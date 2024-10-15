@@ -23,6 +23,7 @@ from airlines.views import (
     CrewUpdateView,
     CrewDeleteView,
     PlaneListView,
+    PlaneCreateView,
     PlaneDetailView,
     PlaneUpdateView,
     PlaneDeleteView,
@@ -37,6 +38,8 @@ from airlines.views import (
 )
 
 app_name = "airlines"
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index, name="index"),
@@ -45,6 +48,7 @@ urlpatterns = [
     path("crew/update/<int:pk>", CrewUpdateView.as_view(), name="crew-update"),
     path("crew/delete/<int:pk>", CrewDeleteView.as_view(), name="crew-delete"),
     path("plane/", PlaneListView.as_view(), name="plane-list"),
+    path("plane/create", PlaneCreateView.as_view(), name="plane-create"),
     path("plane/<int:pk>", PlaneDetailView.as_view(), name="plane-detail"),
     path("plane/update/<int:pk>", PlaneUpdateView.as_view(), name="plane-update"),
     path("plane/delete/<int:pk>", PlaneDeleteView.as_view(), name="plane-delete"),

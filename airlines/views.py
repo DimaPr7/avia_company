@@ -1,11 +1,9 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from airlines.forms import OrderForm
 from airlines.models import Crew, Plane, Order, Client
+from airlines.forms import PlaneCreateForm
 
 
 # @login_required
@@ -60,6 +58,13 @@ class PlaneListView(generic.ListView):
     paginate_by = 5
 
 
+class PlaneCreateView(generic.CreateView):
+    model = Plane
+    form_class = PlaneCreateForm
+    template_name = "plane_form.html"
+    success_url = reverse_lazy("plane-list")
+
+
 class PlaneDetailView(generic.DetailView):
     model = Plane
     template_name = "plane_detail.html"
@@ -76,6 +81,7 @@ class PlaneUpdateView(generic.UpdateView):
 
 class PlaneDeleteView(generic.DeleteView):
     model = Plane
+    template_name = "plane_confirm_delete.html"
     success_url = reverse_lazy("avia_company:plane-list")
 
 
@@ -103,6 +109,7 @@ class OrderUpdateView(generic.UpdateView):
 
 class OrderDeleteView(generic.DeleteView):
     model = Order
+    template_name = "order_confirm_delete.html"
     success_url = reverse_lazy("avia_company:order-list")
 
 

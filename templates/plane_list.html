@@ -2,11 +2,21 @@
 
 {% block content %}
 <h1>Our planes</h1>
+  <div style="margin-top: 20px;">
+    <a href="{% url 'plane-create' %}" class="btn" style="background-color: green; color: white;">+</a>
+  </div>
   {% if plane_list %}
     <ul>
       {% for plane in plane_list %}
         <li>
-          <a href="{% url 'plane-detail' plane.pk %}">{{ plane.id }}: {{ plane.plane_model }}</a>
+          <span>
+            <a href="{% url 'plane-detail' plane.pk %}">{{ plane.id }}: {{ plane.plane_model }}</a>
+          </span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span style="float: right;">
+            <a href="{% url 'plane-update' plane.id %}" class="btn btn-warning">Edit</a> &nbsp;
+            <a href="{% url 'plane-delete' plane.id %}" class="btn" style="background-color: red; color: white;">Delete</a>
+          </span>
         </li>
       {% endfor %}
     </ul>
