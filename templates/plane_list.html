@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Our planes</h1>
-  <div style="margin-top: 20px;">
-    <a href="{% url 'plane-create' %}" class="btn" style="background-color: green; color: white;">+</a>
-  </div>
+            
+<h1>Our planes 
+    <a href="{% url 'plane-create' %}" class="btn" style="background-color: green; color: white;">+</a></h1>
   {% if plane_list %}
     <ul>
       {% for plane in plane_list %}
