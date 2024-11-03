@@ -1,17 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Id {{ order.number }}</h1> <a href="{% url 'order-update' order.id %}" class="btn btn-warning">Edit Order</a>
-  <a href="{% url 'order-delete' order.id %}" class="btn btn-warning">Delete Order</a>
+<div class="container-fluid mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>
+        <span class="badge" style="background-color: #ffcc00; color: #000; padding: 0.5em 1em; margin-left: 10px;">
+          ID: {{ order.id }}
+        </span>
+      </h1>
+      <div class="btn-group" role="group" aria-label="Order Actions">
+        <a href="{% url 'order-update' order.id %}" class="btn btn-warning">
+          <i class="fas fa-edit"></i> Edit Order
+        </a>
+        <a href="{% url 'order-delete' order.id %}" class="btn btn-danger">
+          <i class="fas fa-trash"></i> Delete Order
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="h5">Order Price: <span class="text-success">{{ order.price }}$</span></p>
+      <p class="h5">Order Status: <span class="badge bg-info text-dark" style="padding: 0.5em 1em;">{{ order.status }}</span></p>
+    </div>
+  </div>
 
-<p>Order price: {{ order.price }}$</p>
-<p>Order status: {{ order.status }}</p>
-<h2>Plane</h2>
-<ul>
-  {% for plane in order.flight.all %}
-  <li>Plane ID: {{ plane.id }}</li>
-    <li>Plane Model: {{ plane.plane_model }}</li>
-    <li>Crew Number: {{ plane.crew.number }}</li>
-  {% endfor %}
-</ul>
+  <h2 class="mt-4">Associated Planes</h2>
+  <div class="list-group">
+    {% for plane in order.flight.all %}
+      <div class="list-group-item">
+        <h5 class="mb-1">Plane ID: {{ plane.id }}</h5>
+        <p class="mb-1">Plane Model: <strong>{{ plane.plane_model }}</strong></p>
+        <p>Crew Number: <strong>{{ plane.crew.number }}</strong></p>
+      </div>
+    {% empty %}
+      <div class="list-group-item">No planes associated with this order.</div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

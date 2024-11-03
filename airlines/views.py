@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from airlines.models import Crew, Plane, Order, Client
-from airlines.forms import PlaneCreateForm
+from airlines.forms import PlaneCreateForm, OrderCreateForm
 
 
 # @login_required
@@ -91,6 +91,11 @@ class OrderListView(generic.ListView):
     template_name = "order_list.html"
     paginate_by = 5
 
+class OrderCreateView(generic.CreateView):
+    model = Order
+    form_class = OrderCreateForm
+    template_name = "order_form.html"
+    success_url = reverse_lazy("order-list")
 
 class OrderDetailView(generic.DetailView):
     model = Order

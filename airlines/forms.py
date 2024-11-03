@@ -1,5 +1,5 @@
 from django import forms
-from airlines.models import Crew, Plane
+from airlines.models import Crew, Plane, Order
 
 
 class PlaneForm(forms.ModelForm):
@@ -9,6 +9,18 @@ class PlaneForm(forms.ModelForm):
         widgets = {
             'crew': forms.CheckboxSelectMultiple(),
         }
+
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
+
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = '__all__'
 
 
 class PlaneCreateForm(PlaneForm):
