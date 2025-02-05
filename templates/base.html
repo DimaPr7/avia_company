@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Taxi Service</title>
+  <title>Airline Company</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
@@ -160,6 +160,31 @@
 
     .zoom-in:hover {
         transform: scale(1);
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 200px;
+            padding: 0.5rem;
+        }
+
+        main {
+            margin-left: 200px;
+            padding: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        main {
+            margin-left: 0;
+            padding: 1rem;
+        }
     }
   </style>
 </head>

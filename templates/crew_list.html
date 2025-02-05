@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Crews</h1>
+<h1 class="mb-4">Crews</h1>
   {% if crew_list %}
-    <ul>
+    <ul class="list-group">
       {% for crew in crew_list %}
-        <li>{{ crew.name }} Number: <b>{{ crew.number }}</b> Rate: {{ crew.rate }}</li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>{{ crew.name }}</strong> 
+            <span class="text-muted">Number: <b>{{ crew.number }}</b></span> 
+            <span class="text-muted">Rate: {{ crew.rate }}</span>
+          </div>
+          <div>
+            <a href="{% url 'crew-update' crew.id %}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{% url 'crew-delete' crew.id %}" class="btn btn-danger btn-sm">Delete</a>
+          </div>
+        </li>
       {% endfor %}
     </ul>
   {% else %}
