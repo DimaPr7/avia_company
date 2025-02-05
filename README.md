@@ -6,7 +6,7 @@ The **Airplane Management System** is designed to manage airplanes, their crews,
 ---
 
 ## Entity-Relationship Diagram
-![Entity-Relationship Diagram](diagram.png)
+![Entity-Relationship Diagram](templates/diagram.png)
 
 ### Entities and Relationships:
 - **Plane:**
@@ -19,6 +19,26 @@ The **Airplane Management System** is designed to manage airplanes, their crews,
   - Attributes: `AbstractUser`, `passport_number`
 
 ---
+## Main page
+![Main page](templates/main.png)
+
+## Planes list
+![Main page](templates/planes_list.jpg)
+
+## Update plane
+![Main page](templates/update_plane.jpg)
+
+## Create plane
+![Main page](templates/create_plane.jpg)
+
+## Crews list
+![Main page](templates/crews_list.jpg)
+
+## Orders list
+![Main page](templates/orders_list.jpg)
+
+## Create order
+![Main page](templates/create_order.png)
 
 ## Key Features
 - Management of airplane details including model, type, and range.
