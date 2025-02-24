@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
+ROOT_URLCONF = 'avia_company.urls'
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -33,7 +34,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'avia_company.urls'
 
 TEMPLATES = [
     {
