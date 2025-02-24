@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-from avia_company.settings.development import DEBUG
 
 load_dotenv()
 
