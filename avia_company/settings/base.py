@@ -2,12 +2,15 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Загрузка переменных окружения из .env
 load_dotenv()
+ROOT_URLCONF = 'avia_company.urls'
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", "default_secret_key")
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
+
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -31,6 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -49,21 +53,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'avia_company.wsgi.application'
 
-# Валидаторы паролей
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
-
-# Общие настройки для базы данных (по умолчанию будет SQLite)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -75,3 +70,4 @@ STATICFILES_DIRS = (BASE_DIR / "static",)
 STATIC_ROOT = "staticfiles/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = "airlines.Client"
