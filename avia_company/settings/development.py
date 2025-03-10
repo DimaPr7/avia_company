@@ -1,9 +1,10 @@
 from .base import *
 
+# Локальная разработка, DEBUG = True
 DEBUG = True
 
-ALLOWED_HOSTS = ["avia-company.onrender.com", "127.0.0.1", "localhost"]
-
+# Разрешенные хосты для разработки
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 DATABASES = {
     'default': {

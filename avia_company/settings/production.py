@@ -1,9 +1,12 @@
 from .base import *
 
+# Продакшн окружение, DEBUG = False
 DEBUG = False
 
-ALLOWED_HOSTS = ["avia-company.onrender.com", "127.0.0.1", "localhost"]
+# Разрешенные хосты для продакшн
+ALLOWED_HOSTS = ['avia-company.onrender.com', '127.0.0.1', 'localhost']
 
+# Настройки базы данных для продакшн
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
