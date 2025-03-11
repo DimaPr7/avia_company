@@ -9,8 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 CSRF_TRUSTED_ORIGINS = [
-    "https://avia-company.onrender.com",
-    "https://www.avia-company.onrender.com",
+    'https://avia-company.onrender.com',
 ]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
