@@ -8,7 +8,9 @@ ROOT_URLCONF = 'avia_company.urls'
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://avia-company.onrender.com",
+]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
