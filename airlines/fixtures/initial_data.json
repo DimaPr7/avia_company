@@ -1,0 +1,244 @@
+[
+  {
+    "model": "airlines.crew",
+    "pk": 1,
+    "fields": {
+      "number": 101,
+      "rate": 5
+    }
+  },
+  {
+    "model": "airlines.crew",
+    "pk": 2,
+    "fields": {
+      "number": 102,
+      "rate": 4
+    }
+  },
+  {
+    "model": "airlines.crew",
+    "pk": 3,
+    "fields": {
+      "number": 103,
+      "rate": 3
+    }
+  },
+  {
+    "model": "airlines.crew",
+    "pk": 4,
+    "fields": {
+      "number": 104,
+      "rate": 4
+    }
+  },
+  {
+    "model": "airlines.crew",
+    "pk": 5,
+    "fields": {
+      "number": 105,
+      "rate": 5
+    }
+  },
+
+  {
+    "model": "airlines.plane",
+    "pk": 1,
+    "fields": {
+      "plane_model": "Boeing 737",
+      "plane_type": "Passenger",
+      "range_of_flight": 3000,
+      "crew": 1
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 2,
+    "fields": {
+      "plane_model": "Airbus A320",
+      "plane_type": "Passenger",
+      "range_of_flight": 3200,
+      "crew": 2
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 3,
+    "fields": {
+      "plane_model": "Boeing 777",
+      "plane_type": "Cargo",
+      "range_of_flight": 5000,
+      "crew": 3
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 4,
+    "fields": {
+      "plane_model": "Cessna 172",
+      "plane_type": "Private",
+      "range_of_flight": 800,
+      "crew": 4
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 5,
+    "fields": {
+      "plane_model": "Embraer E190",
+      "plane_type": "Passenger",
+      "range_of_flight": 2800,
+      "crew": 5
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 6,
+    "fields": {
+      "plane_model": "Boeing 747",
+      "plane_type": "Cargo",
+      "range_of_flight": 4500,
+      "crew": 1
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 7,
+    "fields": {
+      "plane_model": "Airbus A380",
+      "plane_type": "Passenger",
+      "range_of_flight": 3500,
+      "crew": 2
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 8,
+    "fields": {
+      "plane_model": "Bombardier CRJ700",
+      "plane_type": "Passenger",
+      "range_of_flight": 2000,
+      "crew": 3
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 9,
+    "fields": {
+      "plane_model": "Learjet 75",
+      "plane_type": "Private",
+      "range_of_flight": 1800,
+      "crew": 4
+    }
+  },
+  {
+    "model": "airlines.plane",
+    "pk": 10,
+    "fields": {
+      "plane_model": "Boeing 767",
+      "plane_type": "Cargo",
+      "range_of_flight": 4000,
+      "crew": 5
+    }
+  },
+
+  {
+    "model": "airlines.order",
+    "pk": 1,
+    "fields": {
+      "number": 5001,
+      "price": 150,
+      "status": "Confirmed",
+      "flight": [1, 2]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 2,
+    "fields": {
+      "number": 5002,
+      "price": 200,
+      "status": "Pending",
+      "flight": [3]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 3,
+    "fields": {
+      "number": 5003,
+      "price": 180,
+      "status": "Confirmed",
+      "flight": [4, 5, 6]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 4,
+    "fields": {
+      "number": 5004,
+      "price": 250,
+      "status": "Cancelled",
+      "flight": [7]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 5,
+    "fields": {
+      "number": 5005,
+      "price": 300,
+      "status": "Confirmed",
+      "flight": [8, 9]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 6,
+    "fields": {
+      "number": 5006,
+      "price": 220,
+      "status": "Pending",
+      "flight": [10]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 7,
+    "fields": {
+      "number": 5007,
+      "price": 190,
+      "status": "Confirmed",
+      "flight": [2, 3]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 8,
+    "fields": {
+      "number": 5008,
+      "price": 210,
+      "status": "Confirmed",
+      "flight": [5, 6, 7]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 9,
+    "fields": {
+      "number": 5009,
+      "price": 230,
+      "status": "Pending",
+      "flight": [8]
+    }
+  },
+  {
+    "model": "airlines.order",
+    "pk": 10,
+    "fields": {
+      "number": 5010,
+      "price": 170,
+      "status": "Confirmed",
+      "flight": [1, 10]
+    }
+  }
+]

@@ -8,7 +8,7 @@ class Crew(models.Model):
 
 
 class Plane(models.Model):
-    plane_model = models.CharField(max_length=15)
+    plane_model = models.CharField(max_length=50)
     plane_type = models.CharField(max_length=15)
     range_of_flight = models.IntegerField()
     crew = models.ForeignKey(Crew, on_delete=models.CASCADE,

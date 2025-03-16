@@ -87,7 +87,7 @@ class PlaneUpdateView(generic.UpdateView):
 class PlaneDeleteView(generic.DeleteView):
     model = Plane
     template_name = "plane_confirm_delete.html"
-    success_url = reverse_lazy("avia_company:plane-list")
+    success_url = reverse_lazy("plane-list")
 
 
 class OrderListView(generic.ListView):
