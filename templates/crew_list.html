@@ -2,23 +2,49 @@
 
 {% block content %}
 <h1 class="mb-4">Crews</h1>
-  {% if crew_list %}
-    <ul class="list-group">
-      {% for crew in crew_list %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div>
-            <strong>{{ crew.name }}</strong> 
-            <span class="text-muted">Number: <b>{{ crew.number }}</b></span> 
-            <span class="text-muted">Rate: {{ crew.rate }}</span>
-          </div>
-          <div>
-            <a href="{% url 'crew-update' crew.id %}" class="btn btn-warning btn-sm">Edit</a>
-            <a href="{% url 'crew-delete' crew.id %}" class="btn btn-danger btn-sm">Delete</a>
-          </div>
+
+{% if page_obj %}
+  <ul class="list-group">
+    {% for crew in page_obj %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ crew.name }}</strong>
+          <span class="text-muted">Number: <b>{{ crew.number }}</b></span>
+          <span class="text-muted">Rate: {{ crew.rate }}</span>
+        </div>
+        <div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1">&laquo; First</a>
         </li>
-      {% endfor %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+      {% endif %}
+
+      <li class="page-item disabled">
+        <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+      </li>
+
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        </li>
+      {% endif %}
     </ul>
-  {% else %}
-    <p>No crews are available at the moment.</p>
-  {% endif %}
+  </nav>
+
+{% else %}
+  <p>No crews are available at the moment.</p>
+{% endif %}
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.contrib.auth import login
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
@@ -156,5 +157,21 @@ class CustomLoginView(LoginView):
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy("avia_company:index")
     success_url = reverse_lazy("avia_company:index")
+
+
+def plane_list(request):
+    planes = Plane.objects.all()
+    paginator = Paginator(planes, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'plane_list.html', {'page_obj': page_obj})
+
+
+def crew_list(request):
+    crews = Crew.objects.all()
+    paginator = Paginator(crews, 5)  # 5 экипажей на страницу
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'crew_list.html', {'page_obj': page_obj})
 
 
