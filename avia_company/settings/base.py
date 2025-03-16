@@ -7,7 +7,6 @@ ROOT_URLCONF = 'avia_company.urls'
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 CSRF_TRUSTED_ORIGINS = [
     'https://avia-company.onrender.com',
 ]
@@ -75,3 +74,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "airlines.Client"
+LOGIN_REDIRECT_URL = '/'

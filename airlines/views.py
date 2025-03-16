@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
-
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LogoutView
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from airlines.models import Crew, Plane, Order, Client
 from airlines.forms import PlaneCreateForm, OrderCreateForm
 
@@ -138,3 +143,18 @@ class ClientUpdateView(generic.UpdateView):
 class ClientDeleteView(generic.DeleteView):
     model = Client
     success_url = reverse_lazy("avia_company:client-list")
+
+
+class CustomLoginView(LoginView):
+    template_name = "login.html"
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy("avia_company:index")
+
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy("avia_company:index")
+    success_url = reverse_lazy("avia_company:index")
+
+

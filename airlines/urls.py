@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 from airlines.views import (
@@ -19,7 +20,7 @@ from airlines.views import (
     ClientListView,
     ClientDetailView,
     ClientUpdateView,
-    ClientDeleteView
+    ClientDeleteView,
 )
 
 urlpatterns = [path("", index, name="index"),
@@ -40,4 +41,7 @@ urlpatterns = [path("", index, name="index"),
     path("client/", ClientListView.as_view(), name="client-list"),
     path("client/<int:pk>/", ClientDetailView.as_view(), name="client-detail"),
     path("client/update/<int:pk>/", ClientUpdateView.as_view(), name="client-update"),
-    path("client/delete/<int:pk>/", ClientDeleteView.as_view(), name="client-delete"),]
+    path("client/delete/<int:pk>/", ClientDeleteView.as_view(), name="client-delete"),
+    path("login/", LoginView.as_view(template_name="login.html"), name="login"),
+    path("logout/", LogoutView.as_view(next_page="index"), name="logout"),
+               ]

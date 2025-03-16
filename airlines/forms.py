@@ -1,4 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 from airlines.models import Crew, Plane, Order
 
 
@@ -16,7 +19,6 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = '__all__'
 
-
 class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -31,3 +33,4 @@ class PlaneCreateForm(PlaneForm):
     class Meta:
         model = Plane
         fields = ['plane_model', 'plane_type', 'range_of_flight', 'crew']
+
