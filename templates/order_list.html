@@ -4,9 +4,11 @@
 <div class="container mt-4">
   <h1 class="d-flex justify-content-between align-items-center">
     <span>Orders</span>
-    <a href="{% url 'order-create' %}" class="btn btn-success btn-sm">
-      <i class="fas fa-plus"></i> Add Order
-    </a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'order-create' %}" class="btn btn-success btn-sm">
+        <i class="fas fa-plus"></i> Add Order
+      </a>
+    {% endif %}
   </h1>
 
   {% if page_obj %}
@@ -16,14 +18,16 @@
           <a href="{% url 'order-detail' order.pk %}" class="text-decoration-none text-dark">
             <strong>ID: {{ order.number }}</strong> - Status: {{ order.status }}
           </a>
-          <div>
-            <a href="{% url 'order-update' order.id %}" class="btn btn-warning btn-sm me-2">
-              <i class="fas fa-edit"></i> Edit
-            </a>
-            <a href="{% url 'order-delete' order.id %}" class="btn btn-danger btn-sm">
-              <i class="fas fa-trash"></i> Delete
-            </a>
-          </div>
+          {% if user.is_authenticated %}
+            <div>
+              <a href="{% url 'order-update' order.id %}" class="btn btn-warning btn-sm me-2">
+                <i class="fas fa-edit"></i> Edit
+              </a>
+              <a href="{% url 'order-delete' order.id %}" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash"></i> Delete
+              </a>
+            </div>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
